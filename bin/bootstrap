@@ -1,0 +1,22 @@
+#!/bin/bash
+
+DOTFILES="$(cd $(dirname $0)/.. && pwd)"
+
+function symlink_files {
+  for file in .gemrc .gitconfig .vimrc .agignore; do
+    ln -s $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
+  done
+}
+
+function install_dependencies {
+  pip install --requirement $DOTFILES/Pipfile
+  brew brewdle --file=$DOTFILES/Brewfile
+}
+
+function install_vim_plugins {
+  vim +PluginInstall +qall && echo "vim plugins installed"
+}
+
+symlink_files
+install_dependencies
+install_vim_plugins
