@@ -35,6 +35,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'kotarak/vimclojure'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-leiningen'
+Plugin 'tpope/vim-salve'
 
 " misc
 Plugin 'jpalardy/vim-slime'
