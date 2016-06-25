@@ -3,14 +3,18 @@
 DOTFILES="$(cd $(dirname $0)/.. && pwd)"
 
 function symlink_files {
-  for file in .gemrc .gitconfig .vimrc .agignore; do
+  for file in .gemrc .gitconfig .lein .vimrc .agignore; do
     ln -s $DOTFILES/$file $HOME/$file && echo "$HOME/$file linked"
   done
+  mkdir -p $HOME/.lein
+  ln -s lein-profiles.clj $HOME/.lein/profiles.clj && \
+    echo "$HOME/.lein/profiles.clj linked"
 }
 
 function install_dependencies {
   pip install --requirement $DOTFILES/Pipfile
   brew brewdle --file=$DOTFILES/Brewfile
+  lein deps
 }
 
 function install_vim_plugins {

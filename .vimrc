@@ -29,13 +29,12 @@ Plugin 'gmarik/Vundle.vim'
 " language support
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
-Plugin 'guns/vim-clojure-static'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'kotarak/vimclojure'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-leiningen'
 Plugin 'tpope/vim-salve'
+Plugin 'venantius/vim-cljfmt'
 
 " misc
 Plugin 'jpalardy/vim-slime'
