@@ -1,0 +1,10 @@
+.git/
+.idea/
+coverage/
+dist/
+log/
+node_modules/
+vendor/
+packrat/
+
+tags
