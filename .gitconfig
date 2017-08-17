@@ -1,0 +1,24 @@
+[user]
+	#email = TODO fill me in!
+	name = Sasha Gerrand
+	#signingkey = TODO fill me in!
+
+[pull]
+	rebase = true
+
+[hub]
+	protocol = https
+
+[credential]
+	helper = osxkeychain
+
+[commit]
+	gpgsign = true
+
+[core]
+	#excludesfile = TODO fill me in!
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
