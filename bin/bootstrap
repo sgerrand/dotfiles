@@ -13,7 +13,6 @@ function symlink_files {
 
 function install_dependencies {
   pip install --requirement $DOTFILES/Pipfile
-  brew brewdle --file=$DOTFILES/Brewfile
   lein deps
 }
 
