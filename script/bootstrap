@@ -1,0 +1,27 @@
+#!/bin/bash
+
+DOTFILES="$(cd $(dirname $0)/.. && pwd)"
+
+function symlink_files {
+  for file in .gemrc .gitconfig .vimrc .agignore; do
+    ln -s "$DOTFILES"/$file ~/$file && echo "$HOME/$file linked"
+  done
+
+  mkdir -p ~/.lein
+  ln -s lein-profiles.clj ~/.lein/profiles.clj && \
+    echo "$HOME/.lein/profiles.clj linked"
+}
+
+function install_dependencies {
+  pip install --requirement "$DOTFILES"/Pipfile
+  lein deps
+}
+
+function install_vim_plugins {
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall && echo "vim plugins installed"
+}
+
+symlink_files
+install_dependencies
+install_vim_plugins
