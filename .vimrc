@@ -72,12 +72,12 @@ else
 
 	" If the Solarized palette is not installed/configured/recognized
 	"let g:solarized_termcolors=256
-	let g:solarized_termtrans=1
+	"let g:solarized_termtrans=1
 	"let g:Powerline_theme='short'
 	"let g:Powerline_colorscheme='solarized256_dark'
 endif
 
-colorscheme solarized
+" colorscheme solarized
 
 " --------------------------------------------------------
 " Backups
