@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cpanm local::lib
-
 function install_asdf_plugins {
   asdf plugin-add clojure https://github.com/vic/asdf-clojure
   asdf plugin-add elm https://github.com/vic/asdf-elm
@@ -36,6 +34,8 @@ function set_asdf_lang_versions {
   asdf global nodejs 8.4.0
   asdf global ruby 2.4.1
 }
+
+eval cpanm local::lib
 
 case $(uname -s) in
   Darwin)
