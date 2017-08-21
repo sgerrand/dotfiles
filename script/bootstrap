@@ -10,6 +10,10 @@ function symlink_files {
   mkdir -p ~/.lein
   ln -s lein-profiles.clj ~/.lein/profiles.clj && \
     echo "$HOME/.lein/profiles.clj linked"
+
+  mkdir -p ~/.gnupg
+  ln -s gpg{,-agent}.conf ~/.gnupg/ && \
+    echo "$HOME/.gnupg/*.conf linked"
 }
 
 function install_dependencies {
