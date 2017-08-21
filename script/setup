@@ -24,6 +24,8 @@ function install_asdf_lang_versions {
   asdf install go 1.8.3
   asdf install nodejs 6.9.5
   asdf install nodejs 8.4.0
+  asdf install python 3.6.2
+  asdf install python miniconda-latest
   asdf install ruby 2.3.4
   asdf install ruby 2.4.1
 }
@@ -32,6 +34,7 @@ function set_asdf_lang_versions {
   asdf global clojure 1.8.0
   asdf global go 1.8.3
   asdf global nodejs 8.4.0
+  asdf global python 3.6.2
   asdf global ruby 2.4.1
 }
 
