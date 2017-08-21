@@ -49,3 +49,5 @@ case $(uname -s) in
     exit 1
     ;;
 esac
+
+echo "$0: complete"
