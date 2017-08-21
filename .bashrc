@@ -106,7 +106,7 @@ if [ -f ~/.gpg-agent-info ]; then
 	export SSH_AUTH_SOCK
 	export SSH_AGENT_PID
 else
-	exec /usr/local/bin/gpg-agent --enable-ssh-support --daemon
+	eval /usr/local/bin/gpg-agent --enable-ssh-support --daemon
 fi
 
 HOMEBREW_NO_ANALYTICS=1
