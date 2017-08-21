@@ -55,7 +55,7 @@ _add_path_to_loadpath '/usr/local/sbin'
 
 # Node/NPM
 #
-test ! -x /usr/local/bin/node && _add_path_to_loadpath './node_modules/.bin'
+# use asdf
 
 # Perl
 #
@@ -63,17 +63,12 @@ test ! -x /usr/local/bin/node && _add_path_to_loadpath './node_modules/.bin'
 test -z "$PERL5LIB" && eval "$(perl -I~/perl5/lib/perl5 -Mlocal::lib)"
 
 # Python
-test -d "~/Library/Python/2.7/bin" && _add_path_to_loadpath "~/Library/Python/2.7/bin"
+#
+# use asdf
 
 # Ruby
 #
-# Use chruby for Ruby version management
-if [[ -d /usr/local/opt/chruby/ ]]; then
-	test -f /usr/local/opt/chruby/share/chruby/chruby.sh && . /usr/local/opt/chruby/share/chruby/chruby.sh
-	# Autoloading takes forever
-	test -f /usr/local/opt/chruby/share/chruby/auto.sh && . /usr/local/opt/chruby/share/chruby/auto.sh
-	#RUBIES+=(/usr/local/rubies/*)
-fi
+# use asdf
 
 # ChefDK
 test -d '/opt/chefdk/bin' && \
