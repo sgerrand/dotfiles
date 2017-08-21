@@ -12,6 +12,14 @@ function install_asdf_plugins {
   asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby
 }
 
+function setup_asdf_nodejs {
+  export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs" && \
+    mkdir -p "$GNUPGHOME" && \
+    chmod 0700 "$GNUPGHOME"
+
+  "$ASDF_DIR"/plugins/nodejs/bin/import-release-team-keyring
+}
+
 function install_asdf_lang_versions {
   asdf install clojure 1.8.0
   asdf install elm 0.18.0
@@ -32,6 +40,7 @@ function set_asdf_lang_versions {
 case $(uname -s) in
   Darwin)
     install_asdf_plugins
+    setup_asdf_nodejs
     install_asdf_lang_versions
     set_asdf_lang_versions
     ;;
