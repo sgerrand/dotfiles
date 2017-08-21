@@ -1,0 +1,42 @@
+#!/bin/bash
+
+cpanm local::lib
+
+function install_asdf_plugins {
+  asdf plugin-add clojure https://github.com/vic/asdf-clojure
+  asdf plugin-add elm https://github.com/vic/asdf-elm
+  asdf plugin-add go https://github.com/kennyp/asdf-golang
+  asdf plugin-add idris https://github.com/vic/asdf-idris
+  asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs
+  asdf plugin-add python https://github.com/tuvistavie/asdf-python
+  asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby
+}
+
+function install_asdf_lang_versions {
+  asdf install clojure 1.8.0
+  asdf install elm 0.18.0
+  asdf install go 1.8.3
+  asdf install nodejs 6.9.5
+  asdf install nodejs 8.4.0
+  asdf install ruby 2.3.4
+  asdf install ruby 2.4.1
+}
+
+function set_asdf_lang_versions {
+  asdf global clojure 1.8.0
+  asdf global go 1.8.3
+  asdf global nodejs 8.4.0
+  asdf global ruby 2.4.1
+}
+
+case $(uname -a) in
+  Darwin)
+    install_asdf_plugins
+    install_asdf_lang_versions
+    set_asdf_lang_versions
+    ;;
+  *)
+    echo "Unsupported operating system, exiting"
+    exit 1
+    ;;
+esac
