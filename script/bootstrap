@@ -18,7 +18,7 @@ function symlink_files {
 
 function install_dependencies {
   gem install bundler
-  pip install --requirement "$DOTFILES"/Pipfile
+  pip3 install --requirement "$DOTFILES"/Pipfile
   lein deps
 }
 

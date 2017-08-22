@@ -87,7 +87,7 @@ test -f /usr/local/etc/bash_completion && \
 	source /usr/local/etc/bash_completion
 
 # Powerline
-POWERLINE_PATH=/usr/local/lib/python2.7
+POWERLINE_PATH=/usr/local/lib/python3.6
 test -f "$POWERLINE_PATH"/site-packages/powerline/bindings/bash/powerline.sh && \
 	test -f "$(which powerline-daemon)" && \
 	powerline-daemon -q && \
