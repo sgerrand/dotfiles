@@ -16,7 +16,18 @@ function symlink_files {
     echo "$HOME/.gnupg/*.conf linked"
 }
 
+function install_circleci_cli {
+  if [ ! -f /usr/local/bin/circleci ] && [ ! -x /usr/local/bin/circleci ]
+  then
+	curl -o /usr/local/bin/circleci https://circle-downloads.s3.amazonaws.com/releases/build_agent_wrapper/circleci \
+	  && chmod +x /usr/local/bin/circleci
+  else
+	echo "CircleCI CLI tool already exists"
+  fi
+}
+
 function install_dependencies {
+  install_circleci_cli
   gem install bundler
   pip3 install --requirement "$DOTFILES"/Pipfile
   lein deps
