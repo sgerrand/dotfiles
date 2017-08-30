@@ -77,7 +77,7 @@ else
 	"let g:Powerline_colorscheme='solarized256_dark'
 endif
 
-" colorscheme solarized
+colorscheme default
 
 " --------------------------------------------------------
 " Backups
