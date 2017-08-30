@@ -16,7 +16,7 @@
 	gpgsign = true
 
 [core]
-	#excludesfile = TODO fill me in!
+	excludesfile = ~/.gitignore_global
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
