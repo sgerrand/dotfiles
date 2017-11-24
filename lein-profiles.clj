@@ -1,4 +1,5 @@
 {:user {:plugins [[org.clojure/tools.nrepl "0.2.11"]
+                  [cider/cider-nrepl "0.15.1"]
                   [jonase/eastwood "0.2.3"]
                   [lein-ancient "0.6.10"]
                   [lein-cljfmt "0.3.0"]
