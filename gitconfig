@@ -1,7 +1,6 @@
 [user]
-	#email = TODO fill me in!
-	name = Sasha Gerrand
 	email = sgerrand@users.noreply.github.com
+	name = Sasha Gerrand
 	#signingkey = TODO fill me in!
 
 [pull]
