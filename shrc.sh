@@ -166,7 +166,7 @@ fi
 source /usr/local/opt/asdf/asdf.sh
 
 # Setup Perl
-test -z "$PERL5LIB" && eval "$(perl -I~/perl5/lib/perl5 -Mlocal::lib)"
+export PERL5LIB=~/perl5/lib/perl5 && eval "$(perl -I~/perl5/lib/perl5 -Mlocal::lib)"
 
 # Set up editor
 if quiet_which nvim
