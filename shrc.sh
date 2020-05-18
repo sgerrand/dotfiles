@@ -146,8 +146,6 @@ then
 
   alias locate="mdfind -name"
   alias finder-hide="setfile -a V"
-
-  rbenv-nodenv-homebrew-sync
 elif [ "$LINUX" ]
 then
   quiet_which keychain && eval "$(keychain -q --eval --agents ssh id_rsa)"
