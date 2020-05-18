@@ -4,6 +4,6 @@
 cd $(dirname $0)/..
 
 script/install-asdf-plugins
-
+script/install-vscode-extensions
 
 eval cpanm local::lib
