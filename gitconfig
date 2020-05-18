@@ -7,8 +7,8 @@
 [pull]
 	rebase = true
 
-[hub]
-	protocol = https
+[push]
+        default = simple
 
 [credential]
 	helper = osxkeychain
@@ -23,3 +23,9 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
+
+[github]
+        user = sgerrand
+
+[hub]
+	protocol = https
