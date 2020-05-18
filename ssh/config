@@ -1,0 +1,8 @@
+Host *
+	StrictHostKeyChecking ask
+	VerifyHostKeyDNS ask
+	NoHostAuthenticationForLocalhost yes
+	UseKeychain yes
+	AddKeysToAgent yes
+	ControlMaster auto
+	ControlPath /tmp/ssh-%r@%h:%p.socket
