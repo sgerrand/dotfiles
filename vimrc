@@ -13,9 +13,6 @@ set tabpagemax=50			" open 50 tabs max
 
 filetype off				" required
 
-" Powerline
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
-
 " --------------------------------------------------------
 " Vundle
 " --------------------------------------------------------
