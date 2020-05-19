@@ -53,8 +53,7 @@ Plugin 'tpope/vim-surround'
 " --------------------------------------------------------
 " Colours/Themes
 " --------------------------------------------------------
-Plugin 'altercation/vim-colors-solarized' " outdated
-" Plugin 'stephenmckinney/vim-solarized-powerline'
+Plugin 'stephenmckinney/vim-solarized-powerline'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -65,13 +64,11 @@ if has('gui_running')
 	set background=light
 else
 	set background=dark
-
-	" If the Solarized palette is not installed/configured/recognized
-	"let g:solarized_termcolors=256
-	"let g:solarized_termtrans=1
-	"let g:Powerline_theme='short'
-	"let g:Powerline_colorscheme='solarized256_dark'
 endif
+
+" If the Solarized palette is not installed/configured/recognized
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
 
 colorscheme default
 
