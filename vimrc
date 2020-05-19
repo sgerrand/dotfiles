@@ -53,7 +53,7 @@ Plugin 'tpope/vim-surround'
 " --------------------------------------------------------
 " Colours/Themes
 " --------------------------------------------------------
-Plugin 'stephenmckinney/vim-solarized-powerline'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
