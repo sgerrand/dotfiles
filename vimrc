@@ -3,9 +3,9 @@
 " --------------------------------------------------------
 set nocompatible			" be iMproved, required
 set history=1000			" lots of command line history
-set cf						" error files / jumping
-set ffs=unix,dos,mac		" support these files
-set isk+=_,$,@,%,#,-		" none word dividers
+set cf				" error files / jumping
+set ffs=unix,dos,mac			" support these files
+set isk+=_,$,@,%,#,-			" none word dividers
 set viminfo='1000,f1,:100,@100,/20
 set modeline				" make sure modeline support is enabled
 set autoread				" reload files (no local changes only)
