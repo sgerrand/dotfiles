@@ -6,4 +6,4 @@ cd $(dirname $0)/..
 script/install-asdf-plugins
 script/install-vscode-extensions
 
-eval cpanm local::lib
+env PERL5LIB=~/perl5/lib/perl5 cpanm --local-lib ~/perl5 JSON JSON::XS YAML local::lib
