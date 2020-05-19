@@ -7,3 +7,5 @@ script/install-asdf-plugins
 script/install-vscode-extensions
 
 env PERL5LIB=~/perl5/lib/perl5 cpanm --local-lib ~/perl5 JSON JSON::XS YAML local::lib
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
