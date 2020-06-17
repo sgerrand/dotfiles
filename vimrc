@@ -28,7 +28,6 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-leiningen'
 Plugin 'tpope/vim-salve'
 Plugin 'venantius/vim-cljfmt'
 
