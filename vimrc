@@ -58,6 +58,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable
+set regexpengine=0
 
 if has('gui_running')
 	set background=light
