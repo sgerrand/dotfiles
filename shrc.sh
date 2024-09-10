@@ -49,6 +49,9 @@ quiet_which() {
   command -v "$1" >/dev/null
 }
 
+add_to_path_end "/opt/homebrew/bin"
+add_to_path_end "/opt/homebrew/sbin"
+
 add_to_path_end "/usr/local/bin"
 add_to_path_end "/usr/local/sbin"
 
