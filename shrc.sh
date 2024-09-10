@@ -166,7 +166,8 @@ then
 fi
 
 # Setup asdf
-source /usr/local/opt/asdf/asdf.sh
+unset ASDF_DIR
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Setup Perl
 export PERL5LIB=~/perl5/lib/perl5 && eval "$(perl -I~/perl5/lib/perl5 -Mlocal::lib)"
