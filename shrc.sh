@@ -172,6 +172,11 @@ source /opt/homebrew/opt/asdf/libexec/asdf.sh
 # Setup Perl
 export PERL5LIB=~/perl5/lib/perl5 && eval "$(perl -I~/perl5/lib/perl5 -Mlocal::lib)"
 
+# Setup Elixir
+#
+# Enable shell history for IEx
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # Set up editor
 if quiet_which nvim
 then
