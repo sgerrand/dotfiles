@@ -24,7 +24,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " language support
-Plugin 'elixir-lang/vim-elixir'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'fatih/vim-go'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-fireplace'
