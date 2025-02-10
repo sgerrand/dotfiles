@@ -26,6 +26,7 @@ Plugin 'gmarik/Vundle.vim'
 " language support
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'fatih/vim-go'
+Plugin 'hashivim/vim-terraform'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-salve'
