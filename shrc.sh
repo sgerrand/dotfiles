@@ -166,8 +166,9 @@ then
 fi
 
 # Setup asdf
-unset ASDF_DIR
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
+unset ASDF_DATA_DIR
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 # Setup Perl
 export PERL5LIB=~/perl5/lib/perl5 && eval "$(perl -I~/perl5/lib/perl5 -Mlocal::lib)"
