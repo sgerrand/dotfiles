@@ -178,6 +178,9 @@ export PERL5LIB=~/perl5/lib/perl5 && eval "$(perl -I~/perl5/lib/perl5 -Mlocal::l
 # Enable shell history for IEx
 export ERL_AFLAGS="-kernel shell_history enabled"
 
+# Setup Ollama
+export OLLAMA_API_BASE="http://127.0.0.1:11434"
+
 # Set up editor
 if quiet_which nvim
 then
