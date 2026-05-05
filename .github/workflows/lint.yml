@@ -1,0 +1,27 @@
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # shellcheck and jq are preinstalled on ubuntu-latest runners.
+      - name: Install shfmt
+        run: |
+          SHFMT_VERSION=v3.8.0
+          curl -fsSL -o "$RUNNER_TEMP/shfmt" \
+            "https://github.com/mvdan/sh/releases/download/${SHFMT_VERSION}/shfmt_${SHFMT_VERSION}_linux_amd64"
+          chmod +x "$RUNNER_TEMP/shfmt"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+
+      - name: Run lint
+        run: script/lint
