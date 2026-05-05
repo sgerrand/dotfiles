@@ -17,7 +17,6 @@ shprofile.sh
 shrc.sh
 script/bootstrap
 script/install-asdf-plugins
-script/install-coding-agent-plugins
 script/install-vscode-extensions
 script/lint
 script/setup

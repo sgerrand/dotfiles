@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # shellcheck disable=SC2155
 
 # Colourful manpages
@@ -82,8 +82,7 @@ alias be="noglob bundle exec"
 alias sha256="shasum -a 256"
 
 # Platform-specific stuff
-if quiet_which brew
-then
+if quiet_which brew; then
   export HOMEBREW_PREFIX="$(brew --prefix)"
   export HOMEBREW_REPOSITORY="$(brew --repo)"
   export HOMEBREW_AUTO_UPDATE_SECS=3600
@@ -117,15 +116,13 @@ then
   }
 fi
 
-if [ "$MACOS" ]
-then
+if [ "$MACOS" ]; then
   export GREP_OPTIONS="--color=auto"
   export CLICOLOR=1
   export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
   export RESQUE_REDIS_URL="redis://localhost:6379"
 
-  if quiet_which diff-highlight
-  then
+  if quiet_which diff-highlight; then
     # shellcheck disable=SC2016
     export GIT_PAGER='diff-highlight | less -+$LESS -RX'
   else
@@ -133,8 +130,7 @@ then
     export GIT_PAGER='less -+$LESS -RX'
   fi
 
-  if quiet_which exa
-  then
+  if quiet_which exa; then
     alias ls="exa -Fg"
   else
     alias ls="ls -F"
@@ -148,15 +144,13 @@ then
 
   alias locate="mdfind -name"
   alias finder-hide="setfile -a V"
-elif [ "$LINUX" ]
-then
+elif [ "$LINUX" ]; then
   quiet_which keychain && eval "$(keychain -q --eval --agents ssh id_rsa)"
 
   alias su="/bin/su -"
   alias ls="ls -F --color=auto"
   alias open="xdg-open"
-elif [ "$WINDOWS" ]
-then
+elif [ "$WINDOWS" ]; then
   alias ls="ls -F --color=auto"
 
   open() {
@@ -182,22 +176,19 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export OLLAMA_API_BASE="http://127.0.0.1:11434"
 
 # Set up editor
-if quiet_which nvim
-then
+if quiet_which nvim; then
   export EDITOR="nvim"
   export VISUAL="$EDITOR"
-elif quiet_which code
-then
+elif quiet_which code; then
   export EDITOR="code"
   export GIT_EDITOR="$EDITOR -w"
   export SVN_EDITOR="$GIT_EDITOR"
-elif quiet_which vim
-then
+elif quiet_which vim; then
   export EDITOR="vim"
-elif quiet_which vi
-then
+elif quiet_which vi; then
   export EDITOR="vi"
 fi
+# shellcheck disable=SC2139
 alias e="$EDITOR"
 
 HOMEBREW_NO_ANALYTICS=1
@@ -207,15 +198,15 @@ export HOMEBREW_NO_ANALYTICS
 quiet_which dircolors && eval "$(dircolors -b)"
 
 # More colours with grc
-# shellcheck disable=SC1090
+# shellcheck source=/dev/null
 [ -f "$HOMEBREW_PREFIX/etc/grc.bashrc" ] && source "$HOMEBREW_PREFIX/etc/grc.bashrc"
 
 # Save directory changes
 cd() {
   builtin cd "$@" || return
-  [ "$TERMINALAPP" ] && command -v set_terminal_app_pwd >/dev/null \
-    && set_terminal_app_pwd
-  pwd > "$HOME/.lastpwd"
+  [ "$TERMINALAPP" ] && command -v set_terminal_app_pwd >/dev/null &&
+    set_terminal_app_pwd
+  pwd >"$HOME/.lastpwd"
   ls
 }
 

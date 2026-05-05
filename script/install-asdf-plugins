@@ -1,8 +1,7 @@
 #!/bin/sh
 set -e
 
-if ! command -v asdf >/dev/null
-then
+if ! command -v asdf >/dev/null; then
   echo "Install asdf first!" >&2
   exit 1
 fi
@@ -23,9 +22,9 @@ asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs
 asdf plugin-add python https://github.com/tuvistavie/asdf-python
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby
 
-export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs" && \
-	mkdir -p "$GNUPGHOME" && \
-	chmod 0700 "$GNUPGHOME"
+export GNUPGHOME="${ASDF_DIR:-$HOME/.asdf}/keyrings/nodejs" &&
+  mkdir -p "$GNUPGHOME" &&
+  chmod 0700 "$GNUPGHOME"
 
 "$ASDF_DIR"/plugins/nodejs/bin/import-release-team-keyring
 

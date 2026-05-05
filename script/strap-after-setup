@@ -1,12 +1,12 @@
 #!/bin/sh
 # Run by Strap after installing Brewfile dependencies
 
-cd $(dirname $0)/..
+cd "$(dirname "$0")/.." || exit 1
 
 # Configure TouchID for sudo
 # See: https://support.apple.com/en-gb/109030#:~:text=Touch%20ID%20can,across%20software%20updates
 if [ ! -f /etc/pam.d/sudo_local ]; then
-  sed -E 's/^#(auth)/\1/' /etc/pam.d/sudo_local.template > /etc/pam.d/sudo_local
+  sed -E 's/^#(auth)/\1/' /etc/pam.d/sudo_local.template >/etc/pam.d/sudo_local
 fi
 
 script/install-asdf-plugins

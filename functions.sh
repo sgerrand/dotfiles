@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # Use `docker-cleanup --dry-run` to see what would be deleted.
 
 function docker-cleanup {
@@ -6,17 +8,17 @@ function docker-cleanup {
 
   if [ "$1" == "--dry-run" ]; then
     echo "==> Would stop containers:"
-    echo $EXITED
+    echo "$EXITED"
     echo "==> And images:"
-    echo $DANGLING
+    echo "$DANGLING"
   else
     if [ -n "$EXITED" ]; then
-      docker rm $EXITED
+      docker rm "$EXITED"
     else
       echo "No containers to remove."
     fi
     if [ -n "$DANGLING" ]; then
-      docker rmi $DANGLING
+      docker rmi "$DANGLING"
     else
       echo "No images to remove."
     fi
