@@ -1,0 +1,31 @@
+#!/bin/sh
+# Install development dependencies for linting and git hooks, then wire up
+# lefthook. Run once per clone.
+set -e
+
+cd "$(dirname "$0")/.."
+
+PACKAGES="lefthook shellcheck shfmt jq"
+
+if command -v brew >/dev/null; then
+  for pkg in $PACKAGES; do
+    if brew list --formula "$pkg" >/dev/null 2>&1; then
+      echo "$pkg already installed"
+    else
+      brew install "$pkg"
+    fi
+  done
+elif command -v apt-get >/dev/null; then
+  echo "Debian/Ubuntu: 'sudo apt-get install shellcheck jq' covers two of four." >&2
+  echo "lefthook and shfmt aren't in apt — install via 'go install' or release binaries:" >&2
+  echo "  https://github.com/evilmartian/lefthook/releases" >&2
+  echo "  https://github.com/mvdan/sh/releases" >&2
+  exit 1
+else
+  echo "No supported package manager found." >&2
+  echo "Install manually: $PACKAGES" >&2
+  exit 1
+fi
+
+echo "==> lefthook install"
+lefthook install

@@ -1,0 +1,63 @@
+#!/bin/sh
+# Lint shell scripts and JSON config files.
+# Skips zsh-specific files (z*.sh) — shellcheck and shfmt don't grok zsh syntax.
+set -u
+
+cd "$(dirname "$0")/.." || exit 1
+
+fail=0
+
+SHELL_FILES="
+bash_logout.sh
+bash_profile.sh
+bashrc.sh
+functions.sh
+logout.sh
+shprofile.sh
+shrc.sh
+script/bootstrap
+script/install-asdf-plugins
+script/install-coding-agent-plugins
+script/install-vscode-extensions
+script/lint
+script/setup
+script/strap-after-setup
+"
+
+JSON_FILES="
+vscode-settings.json
+.claude/settings.local.json
+"
+
+have() { command -v "$1" >/dev/null; }
+
+if have shellcheck; then
+  echo "==> shellcheck"
+  # shellcheck disable=SC2086
+  shellcheck $SHELL_FILES || fail=1
+else
+  echo "skip: shellcheck not installed" >&2
+fi
+
+if have shfmt; then
+  echo "==> shfmt (diff only — run with -w to apply)"
+  # shellcheck disable=SC2086
+  shfmt -d -i 2 -ci $SHELL_FILES || fail=1
+else
+  echo "skip: shfmt not installed" >&2
+fi
+
+if have jq; then
+  echo "==> jq"
+  for f in $JSON_FILES; do
+    [ -f "$f" ] || continue
+    jq -e . "$f" >/dev/null || {
+      echo "invalid JSON: $f"
+      fail=1
+    }
+  done
+else
+  echo "skip: jq not installed" >&2
+fi
+
+exit $fail

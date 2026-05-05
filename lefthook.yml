@@ -1,0 +1,23 @@
+# Pre-commit: per-file checks on staged changes (fast).
+# Pre-push: full script/lint as a backstop before anything leaves the machine.
+# Run script/bootstrap to install lefthook + linters and wire up the hooks.
+
+pre-commit:
+  parallel: true
+  commands:
+    shellcheck:
+      glob: "{*.sh,script/*}"
+      exclude: "z*.sh"
+      run: shellcheck {staged_files}
+    shfmt:
+      glob: "{*.sh,script/*}"
+      exclude: "z*.sh"
+      run: shfmt -d -i 2 -ci {staged_files}
+    json:
+      glob: "*.json"
+      run: jq -e . {staged_files}
+
+pre-push:
+  commands:
+    lint:
+      run: script/lint
